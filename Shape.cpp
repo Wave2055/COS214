@@ -27,6 +27,12 @@ Shape::Shape(Shape& copy)
 	this->position_y = copy.position_y;
 }
 
+Shape::~Shape()
+{
+	//no dynamic mem
+	//virtual destructor forces child destructor to be called first
+}
+
 int Shape::getLength() {
 	return this->length;
 }

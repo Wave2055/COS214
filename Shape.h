@@ -19,6 +19,8 @@ public:
 
 	Shape(Shape& copy);
 
+	virtual ~Shape();
+
 	int getLength();
 
 	void setLength(int length);
