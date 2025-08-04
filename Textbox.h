@@ -3,7 +3,7 @@
 
 #include "Shape.h"
 
-class Textbox : Shape {
+class Textbox : public Shape {
 
 public:
 	std::string text;
@@ -14,6 +14,8 @@ public:
 	~Textbox();
 
 	Shape* clone();
+	std::string getText();
+	void setText(std::string t);
 };
 
 #endif

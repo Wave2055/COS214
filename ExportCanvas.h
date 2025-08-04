@@ -1,13 +1,15 @@
 #ifndef EXPORTCANVAS_H
 #define EXPORTCANVAS_H
 
+#include "Canvas.h"
+
 class ExportCanvas {
 
 private:
 	Canvas* canvas;
 
 public:
-	void export();
+	void exportToFile();
 
 private:
 	virtual void prepareCanvas() = 0;

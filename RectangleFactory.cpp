@@ -1,8 +1,15 @@
 #include "RectangleFactory.h"
 
+RectangleFactory::RectangleFactory(): ShapeFactory()
+{
+}
+
+RectangleFactory::~RectangleFactory()
+{
+}
+
 Shape* RectangleFactory::createShape() {
-	// TODO - implement RectangleFactory::createShape
-	throw "Not yet implemented";
+	return new Rectangle();
 }
 
 void RectangleFactory::toString() {

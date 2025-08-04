@@ -1,8 +1,16 @@
 #include "TextboxFactory.h"
 
+TextboxFactory::TextboxFactory():ShapeFactory()
+{
+}
+
+TextboxFactory::~TextboxFactory()
+{
+	//no dynamic mem
+}
+
 Shape* TextboxFactory::createShape() {
-	// TODO - implement TextboxFactory::createShape
-	throw "Not yet implemented";
+	return new Textbox();
 }
 
 void TextboxFactory::toString() {

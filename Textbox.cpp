@@ -25,3 +25,13 @@ Shape* Textbox::clone()
 {
 	return new Textbox(*this);
 }
+
+std::string Textbox::getText()
+{
+	return this->text;
+}
+
+void Textbox::setText(std::string t)
+{
+	this->text = t;
+}

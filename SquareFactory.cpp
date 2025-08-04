@@ -1,8 +1,16 @@
 #include "SquareFactory.h"
 
+SquareFactory::SquareFactory():ShapeFactory()
+{
+}
+
+SquareFactory::~SquareFactory()
+{
+	//no dynamic mem
+}
+
 Shape* SquareFactory::createShape() {
-	// TODO - implement SquareFactory::createShape
-	throw "Not yet implemented";
+	return new Square();
 }
 
 void SquareFactory::toString() {
