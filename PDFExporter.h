@@ -1,0 +1,15 @@
+#ifndef PDFEXPORTER_H
+#define PDFEXPORTER_H
+
+class PDFExporter : ExportCanvas {
+
+
+private:
+	void saveToFile();
+
+	void prepareCanvas();
+
+	void renderElements();
+};
+
+#endif
