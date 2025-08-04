@@ -1,16 +1,24 @@
 #ifndef SHAPE_H
 #define SHAPE_H
 
+#include <string>
+
 class Shape {
 
 private:
 	int length;
 	int width;
-	string colour;
+	std::string colour;
 	int position_x;
 	int position_y;
 
 public:
+	Shape();
+
+	Shape(int l, int w, std::string c, int x, int y);
+
+	Shape(Shape& copy);
+
 	int getLength();
 
 	void setLength(int length);
@@ -19,9 +27,9 @@ public:
 
 	void setWidth(int width);
 
-	string getColour();
+	std::string getColour();
 
-	void setColour(string colour);
+	void setColour(std::string colour);
 
 	int getPosition_x();
 
