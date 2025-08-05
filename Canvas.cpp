@@ -23,12 +23,17 @@ Canvas::Canvas(std::string s)
 	}
 }
 
+
+Canvas::~Canvas()
+{
+	delete shapes;
+}
+
 Memento* Canvas::captureCurrent() {
-	// TODO - implement Canvas::captureCurrent
-	throw "Not yet implemented";
+	
+	return new Memento (this->shapes);
 }
 
 void Canvas::undoAction(Memento* prev) {
-	// TODO - implement Canvas::undoAction
-	throw "Not yet implemented";
+	this->shapes = prev->getShape()->clone();
 }

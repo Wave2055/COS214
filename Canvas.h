@@ -20,9 +20,7 @@ public:
 	Memento* captureCurrent();
 	void undoAction(Memento* prev);
 
-	void createShape(std::string shapeName);
-	void removeShape(int index);
-	std::string listShapes();
+	
 };
 
 #endif

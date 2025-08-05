@@ -4,7 +4,7 @@
 #include "ShapeFactory.h"
 #include "Textbox.h"
 
-class TextboxFactory : ShapeFactory {
+class TextboxFactory :public ShapeFactory {
 
 
 public:
