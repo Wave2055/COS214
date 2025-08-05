@@ -18,7 +18,7 @@ Shape::Shape(int l, int w, std::string c, int x, int y)
 	this->position_y = y;
 }
 
-Shape::Shape(Shape& copy)
+Shape::Shape(const Shape& copy)
 {
 	this->length = copy.length;
 	this->width = copy.width;

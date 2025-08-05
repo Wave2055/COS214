@@ -10,7 +10,7 @@ Textbox::Textbox(int l, int w, std::string c, int x, int y, std::string t): Shap
 	this->text = t;
 }
 
-Textbox::Textbox(Textbox& copy): Shape(copy)
+Textbox::Textbox(const Textbox& copy): Shape(copy)
 {
 	this->text = copy.text;
 }

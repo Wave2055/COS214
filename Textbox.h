@@ -10,7 +10,7 @@ public:
 
 	Textbox();
 	Textbox(int l, int w, std::string c, int x, int y, std::string t);
-	Textbox(Textbox& copy);
+	Textbox(const Textbox& copy);
 	~Textbox();
 
 	Shape* clone();

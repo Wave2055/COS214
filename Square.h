@@ -10,7 +10,7 @@ public:
 
 	Square();
 	Square(int l, int w, std::string c, int x, int y);
-	Square(Square& copy);
+	Square(const Square& copy);
 
 	~Square();
 

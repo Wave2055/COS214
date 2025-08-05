@@ -8,7 +8,7 @@ Square::Square(int l, int w, std::string c, int x, int y): Shape(l,w,c,x,y)
 {
 }
 
-Square::Square(Square& copy):Shape(copy)
+Square::Square(const Square& copy):Shape(copy)
 {
 }
 
