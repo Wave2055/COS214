@@ -1,28 +1,28 @@
 #include "Canvas.h"
 
-Canvas::Canvas(std::string s)
+Canvas::Canvas(int choice)
 {
-	if (s=="rectangle" || s == "Rectangle" || s == "RECTANGLE" || s == "rECTANGLE")
+	switch(choice)
 	{
-		RectangleFactory* fact = new RectangleFactory();
-		shapes = fact->createShape();
-		delete fact;
-	}
-	else if (s == "square" || s =="Square" || s=="SQUARE" || s=="sQUARE")
-	{
-		SquareFactory* fact = new SquareFactory();
-		shapes = fact->createShape();
-		delete fact;
-	}
-	else if (s == "textbox" || s=="Textbox" || s=="textBox" || s=="TextBox" || s=="TEXTBOX" || s=="tEXTBOX" || s=="tEXTbOX" || s=="TEXTbOX")
-	{
-		TextboxFactory* fact = new TextboxFactory();
-		this->shapes = fact->createShape();
-		delete fact;
-	}
-	else
-	{
-		this->shapes = nullptr;
+		case 0: 
+			RectangleFactory* fact = new RectangleFactory();
+			shapes = fact->createShape();
+			delete fact;
+			break;
+
+		case 1:
+			SquareFactory* fact = new SquareFactory();
+			shapes = fact->createShape();
+			break;
+
+		case 2: 
+			TextboxFactory* fact = new TextboxFactory();
+			shapes = fact->createShape();
+			delete fact;
+			break;
+
+		default:
+			shapes = nullptr;
 	}
 }
 

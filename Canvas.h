@@ -14,7 +14,7 @@ private:
 
 public:
 
-	Canvas(std::string s);
+	Canvas(int choice);
 	~Canvas();
 
 	Memento* captureCurrent();
