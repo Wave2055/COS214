@@ -6,16 +6,19 @@ Canvas::Canvas(std::string s)
 	{
 		RectangleFactory* fact = new RectangleFactory();
 		shapes = fact->createShape();
+		delete fact;
 	}
 	else if (s == "square" || s =="Square" || s=="SQUARE" || s=="sQUARE")
 	{
 		SquareFactory* fact = new SquareFactory();
 		shapes = fact->createShape();
+		delete fact;
 	}
 	else if (s == "textbox" || s=="Textbox" || s=="textBox" || s=="TextBox" || s=="TEXTBOX" || s=="tEXTBOX" || s=="tEXTbOX" || s=="TEXTbOX")
 	{
 		TextboxFactory* fact = new TextboxFactory();
 		this->shapes = fact->createShape();
+		delete fact;
 	}
 	else
 	{

@@ -13,7 +13,9 @@ private:
 
 public:
 	Memento(Shape* elements);
+	~Memento();
 	Shape* getShape();
+	void setShape(Shape* shape);
 };
 
 #endif
