@@ -4,7 +4,7 @@
 #include "Shape.h"
 #include "Memento.h"
 #include "RectangleFactory.h"
-#include "SquareFactory.h";
+#include "SquareFactory.h"
 #include "TextboxFactory.h"
 
 class Canvas {
@@ -14,7 +14,7 @@ private:
 
 public:
 
-	Canvas(int choice);
+	Canvas(int size);
 	~Canvas();
 
 	Memento* captureCurrent();
