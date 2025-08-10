@@ -22,7 +22,6 @@ void PDFExporter::saveToFile()
 void PDFExporter::prepareCanvas() 
 {
     std::cout<< "PDF Canvas Prepared\n";//this does not loook right man.....idk whats supposed to be implemented here
-	
 }
 
 void PDFExporter::renderElements() 

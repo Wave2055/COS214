@@ -21,7 +21,8 @@ public:
 	Memento* captureCurrent();
 	void undoAction(Memento* prev);
 
-	
+	void addShape(Shape* shape);
+	const std::vector<Shape*>& getShapes() const { return shapes; }
 };
 
 #endif
