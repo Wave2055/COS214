@@ -6,11 +6,12 @@
 #include "RectangleFactory.h"
 #include "SquareFactory.h"
 #include "TextboxFactory.h"
+#include <vector>
 
 class Canvas {
 
 private:
-	Shape* shapes;
+	std::vector<Shape*> shapes;
 
 public:
 

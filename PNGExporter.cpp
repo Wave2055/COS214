@@ -1,16 +1,25 @@
 #include "PNGExporter.h"
+#include <fstream>
+#include <iostream>
 
-void PNGExporter::saveToFile() {
-	// TODO - implement PNGExporter::saveToFile
-	throw "Not yet implemented";
+void PNGExporter::saveToFile() 
+{
+    std::ofstream file("output.png");
+    if (file.is_open()) {
+        file << "Exported PNG from Canvas\n";
+        file.close();
+        std::cout << "PNG File Content saved to output.png\n";
+    } else {
+        std::cout << "Failed to save PNG file.\n";
+    }
 }
 
-void PNGExporter::prepareCanvas() {
-	// TODO - implement PNGExporter::prepareCanvas
-	throw "Not yet implemented";
+void PNGExporter::prepareCanvas() 
+{
+   	std::cout<< "PNG Canvas Prepared\n";//sus man
 }
 
-void PNGExporter::renderElements() {
-	// TODO - implement PNGExporter::renderElements
-	throw "Not yet implemented";
+void PNGExporter::renderElements() 
+{
+    std::cout<< "PNG Elements Rendered\n";
 }
