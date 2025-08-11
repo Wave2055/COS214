@@ -3,18 +3,19 @@
 
 #include "Shape.h"
 
-class Square : public Shape {
-
+class Square : public Shape
+{
 
 public:
-
 	Square();
 	Square(int l, int w, std::string c, int x, int y);
-	Square(const Square& copy);
+	Square(const Square &copy);
 
 	~Square();
 
-	Shape* clone();
+	Shape *clone();
+
+	std::string toString();
 };
 
 #endif

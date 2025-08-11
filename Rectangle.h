@@ -3,19 +3,21 @@
 
 #include "Shape.h"
 
-class Rectangle : public Shape {
-
+class Rectangle : public Shape
+{
 
 public:
 	Rectangle();
 
 	Rectangle(int l, int w, std::string c, int x, int y);
 
-	Rectangle (Rectangle& copy);
+	Rectangle(Rectangle &copy);
 
 	~Rectangle();
 
-	Shape* clone();
+	Shape *clone();
+
+	std::string toString();
 };
 
 #endif

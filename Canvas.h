@@ -6,23 +6,22 @@
 #include "RectangleFactory.h"
 #include "SquareFactory.h"
 #include "TextboxFactory.h"
-#include <vector>
 
-class Canvas {
+class Canvas
+{
 
 private:
-	std::vector<Shape*> shapes;
+	std::vector<Shape *> shapes;
 
 public:
-
-	Canvas(int size);
+	Canvas();
 	~Canvas();
 
-	Memento* captureCurrent();
-	void undoAction(Memento* prev);
+	void addShape(Shape *shape);
+	Memento *captureCurrent();
+	void undoAction(Memento *prev);
 
-	void addShape(Shape* shape);
-	const std::vector<Shape*>& getShapes() const { return shapes; }
+	std::string listShapes();
 };
 
 #endif

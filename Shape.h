@@ -3,7 +3,8 @@
 
 #include <string>
 
-class Shape {
+class Shape
+{
 
 private:
 	int length;
@@ -15,7 +16,7 @@ private:
 public:
 	Shape();
 	Shape(int l, int w, std::string c, int x, int y);
-	Shape(const Shape& copy);
+	Shape(const Shape &copy);
 	virtual ~Shape();
 
 	int getLength();
@@ -33,7 +34,9 @@ public:
 	int getPosition_y();
 	void setPosition_y(int position_y);
 
-	virtual Shape* clone() = 0;
+	virtual Shape *clone() = 0;
+
+	virtual std::string toString();
 };
 
 #endif

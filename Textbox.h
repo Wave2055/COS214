@@ -3,19 +3,22 @@
 
 #include "Shape.h"
 
-class Textbox : public Shape {
+class Textbox : public Shape
+{
 
 public:
 	std::string text;
 
 	Textbox();
 	Textbox(int l, int w, std::string c, int x, int y, std::string t);
-	Textbox(const Textbox& copy);
+	Textbox(const Textbox &copy);
 	~Textbox();
 
-	Shape* clone();
+	Shape *clone();
 	std::string getText();
 	void setText(std::string t);
+
+	std::string toString();
 };
 
 #endif

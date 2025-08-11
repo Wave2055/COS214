@@ -4,14 +4,14 @@
 #include "Rectangle.h"
 #include "ShapeFactory.h"
 
-class RectangleFactory : public ShapeFactory {
-
+class RectangleFactory : public ShapeFactory
+{
 
 public:
 	RectangleFactory();
 	~RectangleFactory();
 
-	Shape* createShape();
+	Shape *createShape();
 
 	void toString();
 };

@@ -2,29 +2,36 @@
 #include "Shape.h"
 #include "Canvas.h"
 
-
 int main()
 {
     std::cout << "start main" << std::endl;
 
-    Shape** shapes = new Shape*[3];
+    Shape **shapes = new Shape *[3];
 
-    RectangleFactory* rect = new RectangleFactory();
-    SquareFactory* square = new SquareFactory();
-    TextboxFactory* tb = new TextboxFactory();
+    RectangleFactory *rect = new RectangleFactory();
+    SquareFactory *square = new SquareFactory();
+    TextboxFactory *tb = new TextboxFactory();
 
     shapes[0] = rect->createShape();
     shapes[1] = square->createShape();
     shapes[2] = tb->createShape();
 
+    Canvas *cv = new Canvas();
+
+    for (int i = 0; i < 3; i++)
+    {
+        cv->addShape(shapes[i]);
+    }
+
+    std::cout << cv->listShapes() << std::endl;
 
     std::cout << "end main" << std::endl;
 
-    delete rect; 
+    delete rect;
     delete square;
     delete tb;
 
-    for (int i =0 ; i < 3; i++)
+    for (int i = 0; i < 3; i++)
     {
         if (shapes[i])
         {
@@ -32,6 +39,6 @@ int main()
         }
     }
 
-    delete [] shapes;
+    delete[] shapes;
     return 0;
 }
