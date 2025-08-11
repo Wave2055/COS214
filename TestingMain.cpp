@@ -26,6 +26,7 @@ int main()
     }
 
     std::cout << cv->listShapes() << std::endl;
+    // Memento *save = cv->captureCurrent();
 
     shapes[0]->setLength(15);
     shapes[0]->setWidth(7);
@@ -52,6 +53,9 @@ int main()
     png->exportToFile();
     pdf->exportToFile();
 
+    // cv->undoAction(save);
+    std::cout << cv->listShapes() << std::endl;
+
     std::cout << "end main" << std::endl;
 
     delete rect;
@@ -67,6 +71,9 @@ int main()
     }
 
     delete[] shapes;
-    delete cv;
+    // delete cv;
+    // delete png;
+    // delete pdf;
+    //    delete save;
     return 0;
 }

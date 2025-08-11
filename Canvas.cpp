@@ -6,6 +6,15 @@ Canvas::Canvas()
 
 Canvas::~Canvas()
 {
+	for (Shape *shape : shapes)
+	{
+		if (shape)
+		{
+			delete shape;
+		}
+	}
+
+	shapes.clear();
 }
 void Canvas::addShape(Shape *shape)
 {
@@ -42,7 +51,10 @@ void Canvas::undoAction(Memento *prev)
 	// Clear current shapes
 	for (Shape *s : shapes)
 	{
-		delete s;
+		if (s)
+		{
+			delete s;
+		}
 	}
 	shapes.clear();
 
