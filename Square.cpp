@@ -2,6 +2,7 @@
 
 Square::Square() : Shape()
 {
+	this->setWidth(this->getLength());
 }
 
 Square::Square(int l, int w, std::string c, int x, int y) : Shape(l, w, c, x, y)
