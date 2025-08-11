@@ -13,7 +13,7 @@ public:
 
 	Shape* createShape();
 
-	void toString();
+	
 };
 
 #endif

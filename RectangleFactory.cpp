@@ -12,7 +12,4 @@ Shape* RectangleFactory::createShape() {
 	return new Rectangle();
 }
 
-void RectangleFactory::toString() {
-	// TODO - implement RectangleFactory::toString
-	throw "Not yet implemented";
-}
+

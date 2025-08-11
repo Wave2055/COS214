@@ -13,7 +13,4 @@ Shape* TextboxFactory::createShape() {
 	return new Textbox();
 }
 
-void TextboxFactory::toString() {
-	// TODO - implement TextboxFactory::toString
-	throw "Not yet implemented";
-}
+
