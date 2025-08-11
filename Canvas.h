@@ -6,12 +6,13 @@
 #include "RectangleFactory.h"
 #include "SquareFactory.h"
 #include "TextboxFactory.h"
+#include <memory>
 
 class Canvas
 {
 
 private:
-	std::vector<Shape *> shapes;
+	std::vector<std::shared_ptr<Shape>> shapes;
 
 public:
 	Canvas();

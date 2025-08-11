@@ -3,16 +3,14 @@
 
 #include "Shape.h"
 
-class ShapeFactory {
-
+class ShapeFactory
+{
 
 protected:
 	ShapeFactory();
 	virtual ~ShapeFactory();
 
-	virtual Shape* createShape() = 0;
-
-	virtual void toString() = 0;
+	virtual Shape *createShape() = 0;
 };
 
 #endif

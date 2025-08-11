@@ -7,7 +7,10 @@ ExportCanvas::ExportCanvas(Canvas *canvas)
 
 ExportCanvas::~ExportCanvas()
 {
-	delete canvas;
+	// if (this->canvas)
+	// {
+	// 	delete canvas;
+	// }
 }
 
 void ExportCanvas::exportToFile()

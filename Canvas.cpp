@@ -6,21 +6,12 @@ Canvas::Canvas()
 
 Canvas::~Canvas()
 {
-	for (Shape *shape : shapes)
-	{
-		if (shape)
-		{
-			delete shape;
-		}
-	}
-
-	shapes.clear();
 }
 void Canvas::addShape(Shape *shape)
 {
 	if (shape)
 	{
-		shapes.push_back(shape);
+		shapes.push_back(std::shared_ptr<Shape>(shape));
 	}
 }
 
@@ -29,7 +20,8 @@ Memento *Canvas::captureCurrent()
 	// You may want to implement deep copy for all shapes
 	// return new Memento(this->shapes.empty() ? nullptr : shapes.back());
 	std::vector<Shape *> shapeCopies;
-	for (Shape *s : shapes)
+
+	for (auto &s : shapes)
 	{
 		shapeCopies.push_back(s->clone()); // assumes Shape has clone()
 	}
@@ -49,20 +41,20 @@ void Canvas::undoAction(Memento *prev)
 		return;
 
 	// Clear current shapes
-	for (Shape *s : shapes)
-	{
-		if (s)
-		{
-			delete s;
-		}
-	}
-	shapes.clear();
+	// for (auto &s : shapes)
+	// {
+	// 	if (s)
+	// 	{
+	// 		delete s;
+	// 	}
+	// }
+	// shapes.clear();
 
 	// Restore from memento
-	const std::vector<Shape *> &savedShapes = prev->getShapes();
-	for (Shape *s : savedShapes)
+	const std::vector<std::shared_ptr<Shape>> &savedShapes = prev->getShapes();
+	for (auto &s : savedShapes)
 	{
-		shapes.push_back(s->clone());
+		shapes.push_back(std::shared_ptr<Shape>(s->clone()));
 	}
 }
 
@@ -70,7 +62,7 @@ std::string Canvas::listShapes()
 {
 	std::string out = "";
 
-	for (Shape *shape : shapes)
+	for (auto &shape : shapes)
 	{
 		out += shape->toString() + "\n\n";
 	}
