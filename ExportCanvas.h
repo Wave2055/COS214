@@ -3,12 +3,16 @@
 
 #include "Canvas.h"
 
-class ExportCanvas {
+class ExportCanvas
+{
 
 private:
-	Canvas* canvas;
+	Canvas *canvas;
 
 public:
+	ExportCanvas(Canvas *canvas);
+	~ExportCanvas();
+
 	void exportToFile();
 
 private:

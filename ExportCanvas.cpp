@@ -1,6 +1,18 @@
 #include "ExportCanvas.h"
-void ExportCanvas::exportToFile() {
+
+ExportCanvas::ExportCanvas(Canvas *canvas)
+{
+	this->canvas = canvas;
+}
+
+ExportCanvas::~ExportCanvas()
+{
+	delete canvas;
+}
+
+void ExportCanvas::exportToFile()
+{
 	prepareCanvas();
-	renderElements();	
+	renderElements();
 	saveToFile();
 }

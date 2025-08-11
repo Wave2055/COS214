@@ -2,30 +2,35 @@
 #include <iostream>
 #include <fstream>
 
+PDFExporter::PDFExporter(Canvas *canvas) : ExportCanvas(canvas)
+{
+}
 
-void PDFExporter::saveToFile() 
+PDFExporter::~PDFExporter()
+{
+}
+
+void PDFExporter::saveToFile()
 {
     std::ofstream file("output.pdf");
-    if (file.is_open()) 
+    if (file.is_open())
     {
         file << "Exported PDF from Canvas\n";
         file.close();
         std::cout << "PDF File Content saved to output.pdf\n";
-    } 
-    else 
+    }
+    else
     {
         std::cout << "Failed to save PDF file.\n";
     }
-
 }
 
-void PDFExporter::prepareCanvas() 
+void PDFExporter::prepareCanvas()
 {
-    std::cout<< "PDF Canvas Prepared\n";//this does not loook right man.....idk whats supposed to be implemented here
+    std::cout << "PDF Canvas Prepared\n"; // this does not loook right man.....idk whats supposed to be implemented here
 }
 
-void PDFExporter::renderElements() 
+void PDFExporter::renderElements()
 {
-    std::cout<< "PDF Elements Rendered\n";
-	
+    std::cout << "PDF Elements Rendered\n";
 }

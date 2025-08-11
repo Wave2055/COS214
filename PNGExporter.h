@@ -2,8 +2,12 @@
 #define PNGEXPORTER_H
 #include "ExportCanvas.h"
 
-class PNGExporter : public ExportCanvas {
+class PNGExporter : public ExportCanvas
+{
 
+public:
+	PNGExporter(Canvas *canvas);
+	~PNGExporter();
 
 private:
 	void saveToFile();
