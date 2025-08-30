@@ -1,6 +1,55 @@
 #include "ToppingGroup.h"
+#include "Topping.h"
 
-void ToppingGroup::add(PizzaComponent component) {
-	// TODO - implement ToppingGroup::add
-	throw "Not yet implemented";
+ToppingGroup::ToppingGroup(std::string name, double price, std::vector<PizzaComponent *> toppings = {}) : PizzaComponent(name, price)
+{
+
+	// uses get type function to deep copy the param toppings array should it exist
+	if (toppings.size() > 0)
+	{
+		for (PizzaComponent *i : toppings)
+		{
+			if (i->getType() == 0)
+			{
+				this->toppings.push_back(new Topping(i->getName(), i->getPrice()));
+			}
+			else if (i->getType() == 1)
+			{
+
+				this->toppings.push_back(new ToppingGroup(name, price, toppings));
+			}
+			else
+			{
+				// throw an exception of some kind to notify them that an unrecognized object type is in the param toppings array
+				// possibly illegalStateException
+			}
+		}
+	}
+}
+
+void ToppingGroup::add(PizzaComponent *component)
+{
+	if (component->getType() == 0)
+	{
+		this->toppings.push_back(new Topping(component->getName(), component->getPrice()));
+	}
+	else if (component->getType() == 1)
+	{
+		ToppingGroup *temp = dynamic_cast<ToppingGroup *>(component);
+
+		if (temp != nullptr) // redundent null check
+		{
+			this->toppings.push_back(new ToppingGroup(temp->getName(), temp->getPrice(), temp->toppings));
+		}
+	}
+	else
+	{
+		// throw an exception of some kind to notify them that an unrecognized object type is in the param toppings array
+		// possibly illegalStateException
+	}
+}
+
+int ToppingGroup::getType()
+{
+	return 1; // all topping group type =1;
 }

@@ -1,16 +1,23 @@
 #ifndef PIZZACOMPONENT_H
 #define PIZZACOMPONENT_H
 
-class PizzaComponent {
+#include <string>
+class PizzaComponent
+{
 
 private:
 	double price;
-	String name;
+	std::string name;
 
 public:
-	virtual String getName() = 0;
+	virtual ~PizzaComponent(); // virtual destructor so that child destructors are called first
 
-	virtual double getPrice() = 0;
+	virtual std::string getName();
+	virtual double getPrice();
+	virtual int getType();
+
+protected:
+	PizzaComponent(std::string name, double price);
 };
 
 #endif

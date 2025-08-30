@@ -1,7 +1,14 @@
 #ifndef TOPPING_H
 #define TOPPING_H
 
-class Topping : PizzaComponent {
+#include "PizzaComponent.h"
+
+class Topping : public PizzaComponent
+{
+public:
+    Topping(std::string name, double price);
+    ~Topping();
+    int getType();
 };
 
 #endif
