@@ -13,12 +13,14 @@ class ToppingGroup : public PizzaComponent
 
 private:
 	std::vector<PizzaComponent *> toppings;
-	int getType();
 
 public:
 	ToppingGroup(std::string name, double price, std::vector<PizzaComponent *> toppings = {});
 	~ToppingGroup();
 	void add(PizzaComponent *component);
+	int getType();
+	double getPrice();
+	std::string getName();
 };
 
 #endif

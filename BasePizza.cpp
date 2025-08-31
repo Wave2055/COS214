@@ -1,11 +1,11 @@
 #include "BasePizza.h"
 
-double BasePizza::getPrice() {
-	// TODO - implement BasePizza::getPrice
-	throw "Not yet implemented";
+double BasePizza::getPrice()
+{
+	return toppings->getPrice();
 }
 
-String BasePizza::getName() {
-	// TODO - implement BasePizza::getName
-	throw "Not yet implemented";
+std::string BasePizza::getName()
+{
+	return toppings->getName();
 }

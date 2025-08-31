@@ -1,14 +1,20 @@
 #ifndef BASEPIZZA_H
 #define BASEPIZZA_H
 
-class BasePizza : Pizza {
+#include <vector>
+
+#include "Pizza.h"
+#include "PizzaComponent.h"
+
+class BasePizza : Pizza
+{
 
 public:
-	PizzaComponent toppings;
+	PizzaComponent *toppings; // because of ToppingGroup being able to hold multiple toppings
 
 	double getPrice();
 
-	String getName();
+	std::string getName(); // list all toppings before pizza name
 };
 
 #endif

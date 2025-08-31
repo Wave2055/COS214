@@ -1,11 +1,12 @@
 #include "ExtraCheese.h"
 
-double ExtraCheese::getPrice() {
-	// TODO - implement ExtraCheese::getPrice
-	throw "Not yet implemented";
+double ExtraCheese::getPrice()
+{
+	return this->pizza->getPrice() + this->price;
 }
 
-String ExtraCheese::getName() {
+String ExtraCheese::getName()
+{
 	// TODO - implement ExtraCheese::getName
 	throw "Not yet implemented";
 }

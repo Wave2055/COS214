@@ -1,6 +1,10 @@
 #include "Pizza.h"
 
-void Pizza::printPizzza() {
-	// TODO - implement Pizza::printPizzza
-	throw "Not yet implemented";
+Pizza::Pizza()
+{
+}
+
+void Pizza::printPizzza()
+{
+	std::cout << "Pizza: " << this->getName() << " at price: " << this->getPrice();
 }

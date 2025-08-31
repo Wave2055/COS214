@@ -1,14 +1,20 @@
 #ifndef PIZZADECORATOR_H
 #define PIZZADECORATOR_H
 
-class PizzaDecorator : Pizza {
+#include <string>
+
+#include "Pizza.h"
+
+class PizzaDecorator : Pizza
+{
 
 public:
-	Pizza pizza;
+	virtual double getPrice();
 
-	double getPrice();
+	virtual std::string getName();
 
-	String getName();
+protected:
+	Pizza *pizza;
 };
 
 #endif

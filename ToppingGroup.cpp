@@ -53,3 +53,27 @@ int ToppingGroup::getType()
 {
 	return 1; // all topping group type =1;
 }
+
+double ToppingGroup::getPrice()
+{
+	double total = 0;
+
+	for (PizzaComponent *c : this->toppings)
+	{
+		total += c->getPrice();
+	}
+
+	return total;
+}
+
+std::string ToppingGroup::getName()
+{
+	std::string out = "";
+
+	for (PizzaComponent *c : this->toppings)
+	{
+		out += c->getName() + " ";
+	}
+
+	return out;
+}
