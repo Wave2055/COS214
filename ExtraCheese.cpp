@@ -20,3 +20,13 @@ std::string ExtraCheese::getName()
 {
 	return "Extra Cheese " + this->pizza->getName();
 }
+
+int ExtraCheese::getType()
+{
+	return 1;
+}
+
+Pizza *ExtraCheese::getPizza()
+{
+	return pizza;
+}

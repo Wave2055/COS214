@@ -13,6 +13,8 @@ public:
 	ExtraCheese(Pizza *p, double price);
 	~ExtraCheese();
 	double getPrice();
+	int getType();
+	Pizza *getPizza();
 
 	std::string getName();
 };

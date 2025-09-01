@@ -12,7 +12,6 @@ class Menus
 
 protected:
 	std::vector<Observer *> observes;
-	std::vector<Pizza *> pizzas;
 
 public:
 	Menus();

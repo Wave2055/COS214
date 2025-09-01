@@ -1,7 +1,10 @@
 #ifndef DINNERMENU_H
 #define DINNERMENU_H
 
-class DinnerMenu : MenuTypes {
+#include "MenuTypes.h"
+
+class DinnerMenu : public MenuTypes
+{
 };
 
 #endif

@@ -1,7 +1,10 @@
 #ifndef LUNCHMENU_H
 #define LUNCHMENU_H
 
-class LunchMenu : MenuTypes {
+#include "MenuTypes.h"
+
+class LunchMenu : public MenuTypes
+{
 };
 
 #endif

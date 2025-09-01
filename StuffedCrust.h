@@ -8,8 +8,10 @@ class StuffedCrust : public PizzaDecorator
 
 public:
 	double getPrice();
+	int getType();
 
 	std::string getName();
+	StuffedCrust::StuffedCrust(Pizza *p, double price);
 };
 
 #endif

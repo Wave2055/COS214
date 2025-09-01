@@ -33,3 +33,8 @@ std::string BasePizza::getName()
 {
 	return toppings->getName();
 }
+
+int BasePizza::getType()
+{
+	return 0;
+}

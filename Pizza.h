@@ -17,6 +17,8 @@ public:
 	~Pizza();
 
 	Pizza();
+
+	virtual int getType() = 0;
 };
 
 #endif

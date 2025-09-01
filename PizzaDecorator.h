@@ -12,6 +12,7 @@ public:
 	virtual double getPrice();
 
 	virtual std::string getName();
+	int getType();
 
 protected:
 	Pizza *pizza;

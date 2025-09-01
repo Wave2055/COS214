@@ -28,11 +28,12 @@ ToppingGroup::ToppingGroup(std::string name, double price, std::vector<PizzaComp
 }
 ToppingGroup::~ToppingGroup()
 {
-    // Clean up all dynamically allocated toppings
-    for (PizzaComponent* topping : toppings) {
-        delete topping;
-    }
-    toppings.clear();
+	// Clean up all dynamically allocated toppings
+	for (PizzaComponent *topping : toppings)
+	{
+		delete topping;
+	}
+	toppings.clear();
 }
 
 void ToppingGroup::add(PizzaComponent *component)
@@ -84,4 +85,9 @@ std::string ToppingGroup::getName()
 	}
 
 	return out;
+}
+
+std::vector<PizzaComponent *> ToppingGroup::getToppings()
+{
+	return this->toppings;
 }

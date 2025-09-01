@@ -17,6 +17,11 @@ public:
 	double getPrice();
 
 	std::string getName(); // list all toppings before pizza name
+	int getType();
+	PizzaComponent *getToppings()
+	{
+		return this->toppings;
+	};
 
 	BasePizza(PizzaComponent *toppings);
 	~BasePizza();

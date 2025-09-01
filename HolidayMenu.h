@@ -1,7 +1,10 @@
 #ifndef HOLIDAYMENU_H
 #define HOLIDAYMENU_H
 
-class HolidayMenu : MenuTypes {
+#include "MenuTypes.h"
+
+class HolidayMenu : public MenuTypes
+{
 };
 
 #endif
