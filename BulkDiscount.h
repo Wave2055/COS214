@@ -3,7 +3,8 @@
 
 #include "DiscountStrategy.h"
 
-class BulkDiscount : DiscountStrategy {
+class BulkDiscount : public DiscountStrategy {
+    public:
     BulkDiscount();
     ~BulkDiscount();
     double applyDiscount(double originalPrice, int quantity) override;

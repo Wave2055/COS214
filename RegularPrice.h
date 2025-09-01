@@ -2,12 +2,13 @@
 #define REGULARPRICE_H
 #include "DiscountStrategy.h"
 
-class RegularPrice : DiscountStrategy {
+class RegularPrice : public DiscountStrategy {
+    public:
+
     RegularPrice();
     ~RegularPrice();
-    double applyDiscount(double originalPrice, int quantity) override {
-        return originalPrice * quantity;
-    }
+    double applyDiscount(double originalPrice, int quantity) override ;
+    
 };
 
 #endif

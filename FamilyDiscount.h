@@ -2,7 +2,9 @@
 #define FAMILYDISCOUNT_H
 #include "DiscountStrategy.h"
 
-class FamilyDiscount : DiscountStrategy {
+class FamilyDiscount : public DiscountStrategy {
+    public:
+
     FamilyDiscount();
     ~FamilyDiscount();
     double applyDiscount(double originalPrice, int quantity) override;

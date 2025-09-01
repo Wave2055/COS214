@@ -8,11 +8,11 @@ private:
     DiscountStrategy* discountStrategy;
     double pizzaPrice;
     int quantity;
-    bool valid;
+    bool valid = true;
 
 public:
     Order(double price, int qty, DiscountStrategy* strategy);
-    ~Order(); // Need destructor now!
+    ~Order(); 
     
     void setDiscountStrategy(DiscountStrategy* strategy);
     double calculateTotal() const;
