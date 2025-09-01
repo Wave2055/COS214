@@ -1,12 +1,22 @@
 #include "ExtraCheese.h"
 
+ExtraCheese::ExtraCheese(Pizza *p, double price)
+{
+	this->pizza = p;
+	this->price = price;
+}
+
+ExtraCheese::~ExtraCheese()
+{
+	// we dont wanna delete the pizza with the decorator it should be deallocated seperately
+}
+
 double ExtraCheese::getPrice()
 {
 	return this->pizza->getPrice() + this->price;
 }
 
-String ExtraCheese::getName()
+std::string ExtraCheese::getName()
 {
-	// TODO - implement ExtraCheese::getName
-	throw "Not yet implemented";
+	return "Extra Cheese " + this->pizza->getName();
 }

@@ -1,13 +1,15 @@
 #ifndef STUFFEDCRUST_H
 #define STUFFEDCRUST_H
 
-class StuffedCrust : PizzaDecorator {
+#include "PizzaDecorator.h"
 
+class StuffedCrust : public PizzaDecorator
+{
 
 public:
 	double getPrice();
 
-	String getName();
+	std::string getName();
 };
 
 #endif

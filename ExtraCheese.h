@@ -6,17 +6,15 @@
 #include "PizzaDecorator.h"
 #include "Pizza.h"
 
-class ExtraCheese : PizzaDecorator
+class ExtraCheese : public PizzaDecorator
 {
 
 public:
 	ExtraCheese(Pizza *p, double price);
+	~ExtraCheese();
 	double getPrice();
 
 	std::string getName();
-
-private:
-	double price;
 };
 
 #endif
