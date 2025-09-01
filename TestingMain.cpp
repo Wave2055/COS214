@@ -9,6 +9,12 @@
 #include "Topping.h"
 #include "ToppingGroup.h"
 
+#include "Pizza.h"
+#include "BasePizza.h"
+#include "ExtraCheese.h"
+#include "StuffedCrust.h"
+#include "PizzaDecorator.h"
+
 #include "PizzaMenu.h"
 #include "Customer.h"
 #include "Website.h"
@@ -119,8 +125,79 @@ int main()
     std::cout << std::endl;
     std::cout << std::endl;
     std::cout << "---------------------------DECORATOR TESTING---------------------------" << std::endl;
+    Topping *mozzarella = new Topping("Mozzarella", 2.50);
+    BasePizza *basicPizza = new BasePizza(mozzarella); // 1 topping basic **** one
 
-    testObserver();
+    std::cout << "Pizza: " << basicPizza->getName() << std::endl;
+    std::cout << "Price: R" << basicPizza->getPrice() << std::endl;
+    std::cout << "Type: " << basicPizza->getType() << std::endl;
+    basicPizza->printPizzza();
+    std::cout << std::endl
+              << std::endl;
+
+    delete basicPizza;
+    delete mozzarella;
+
+    Topping *pepperoniTopping = new Topping("Pepperoni", 3.00);
+    Topping *pineappleTopping = new Topping("Pineapple", 1.50); // DO NOT JUDGE PINEAPPLE ON PIZZA OKAYYYYY......IM TALKING TO YOU JAITINNN
+
+    std::vector<PizzaComponent *> toppingsList = {pepperoniTopping, pineappleTopping};
+    ToppingGroup *meatVeggieCombo = new ToppingGroup("Meat Veggie Combo", 0, toppingsList);
+    BasePizza *comboPizza = new BasePizza(meatVeggieCombo);
+
+    std::cout << "Pizza: " << comboPizza->getName() << std::endl;
+    std::cout << "Price: R" << comboPizza->getPrice() << std::endl;
+    comboPizza->printPizzza();
+    std::cout << std::endl
+              << std::endl;
+
+    delete comboPizza;
+    delete meatVeggieCombo;
+    delete pepperoniTopping;
+    delete pineappleTopping;
+
+    Topping *basicCheese = new Topping("Cheese", 2.50);
+    BasePizza *plainPizza = new BasePizza(basicCheese);
+    ExtraCheese *cheesePizza = new ExtraCheese(plainPizza, 1.50);
+
+    std::cout << "Pizza: " << cheesePizza->getName() << std::endl;
+    std::cout << "Price: R" << cheesePizza->getPrice() << std::endl;
+    std::cout << "Type: " << cheesePizza->getType() << std::endl;
+    cheesePizza->printPizzza();
+    std::cout << std::endl
+              << std::endl;
+
+    delete cheesePizza;
+    delete plainPizza;
+    delete basicCheese;
+
+    Topping *margheritaTop = new Topping("Tomato Basil", 3.00);
+    BasePizza *margheritaBase = new BasePizza(margheritaTop);
+    StuffedCrust *stuffedPizza = new StuffedCrust(margheritaBase, 2.00);
+
+    std::cout << "Pizza: " << stuffedPizza->getName() << std::endl;
+    std::cout << "Price: R" << stuffedPizza->getPrice() << std::endl;
+    std::cout << "Type: " << stuffedPizza->getType() << std::endl;
+    stuffedPizza->printPizzza();
+    std::cout << std::endl
+              << std::endl;
+
+    delete stuffedPizza;
+    delete margheritaBase;
+    delete margheritaTop;
+
+    std::vector<PizzaComponent *> emptyToppings;
+    ToppingGroup *emptyGroup = new ToppingGroup("Empty", 0, emptyToppings);
+    BasePizza *emptyPizza = new BasePizza(emptyGroup);
+
+    std::cout << "Empty Pizza: " << emptyPizza->getName() << std::endl;
+    std::cout << "Empty Price: R" << emptyPizza->getPrice() << std::endl;
+    emptyPizza->printPizzza();
+    std::cout << std::endl
+              << std::endl;
+
+    delete emptyPizza;
+    delete emptyGroup;
 
     return 0;
 }
