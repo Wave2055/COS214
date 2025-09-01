@@ -6,3 +6,4 @@ main
 *.vpp.bak*
 *.gcno
 *.gcda
+*.gcov
