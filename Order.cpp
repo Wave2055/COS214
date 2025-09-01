@@ -9,6 +9,7 @@ Order::Order(double price, int qty, DiscountStrategy* strategy)
 
 Order::~Order() {
     delete discountStrategy; // Manual cleanup required
+    
 }
 
 void Order::setDiscountStrategy(DiscountStrategy* strategy) {

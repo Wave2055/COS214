@@ -1,5 +1,11 @@
 #include "BulkDiscount.h"
 
+BulkDiscount::BulkDiscount() {
+}
+
+BulkDiscount::~BulkDiscount() {
+}
+
 double BulkDiscount::applyDiscount(double originalPrice, int quantity) 
 {
     double discounted = originalPrice * quantity;
@@ -9,5 +15,5 @@ double BulkDiscount::applyDiscount(double originalPrice, int quantity)
     }
 
     return discounted;
-    
+
 }
