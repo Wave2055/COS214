@@ -18,9 +18,9 @@ public:
 	ToppingGroup(std::string name, double price, std::vector<PizzaComponent *> toppings = {});
 	~ToppingGroup();
 	void add(PizzaComponent *component);
-	int getType();
-	double getPrice();
-	std::string getName();
+	int getType()override;
+	double getPrice()override;
+	std::string getName()override;
 };
 
 #endif

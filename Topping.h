@@ -8,7 +8,7 @@ class Topping : public PizzaComponent
 public:
     Topping(std::string name, double price);
     ~Topping();
-    int getType();
+    int getType()override;
 };
 
 #endif

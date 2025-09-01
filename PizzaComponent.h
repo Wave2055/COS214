@@ -14,7 +14,7 @@ public:
 
 	virtual std::string getName();
 	virtual double getPrice();
-	virtual int getType();
+	virtual int getType() = 0 ;
 
 protected:
 	PizzaComponent(std::string name, double price);

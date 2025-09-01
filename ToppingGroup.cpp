@@ -1,7 +1,7 @@
 #include "ToppingGroup.h"
 #include "Topping.h"
 
-ToppingGroup::ToppingGroup(std::string name, double price, std::vector<PizzaComponent *> toppings = {}) : PizzaComponent(name, price)
+ToppingGroup::ToppingGroup(std::string name, double price, std::vector<PizzaComponent *> toppings) : PizzaComponent(name, price)
 {
 
 	// uses get type function to deep copy the param toppings array should it exist
@@ -25,6 +25,14 @@ ToppingGroup::ToppingGroup(std::string name, double price, std::vector<PizzaComp
 			}
 		}
 	}
+}
+ToppingGroup::~ToppingGroup()
+{
+    // Clean up all dynamically allocated toppings
+    for (PizzaComponent* topping : toppings) {
+        delete topping;
+    }
+    toppings.clear();
 }
 
 void ToppingGroup::add(PizzaComponent *component)
