@@ -1,11 +1,13 @@
 #ifndef SPECIALSMENU_H
 #define SPECIALSMENU_H
 
-class SpecialsMenu : Menus {
+#include "Menus.h"
 
+class SpecialsMenu : public Menus
+{
 
 public:
-	void notifyObservers(String message);
+	void notifyObservers(std::string message);
 };
 
 #endif

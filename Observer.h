@@ -1,11 +1,12 @@
 #ifndef OBSERVER_H
 #define OBSERVER_H
+#include <string>
 
-class Observer {
-
+class Observer
+{
 
 public:
-	virtual void update(String message) = 0;
+	virtual void update(std::string message) = 0;
 };
 
 #endif

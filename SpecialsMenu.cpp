@@ -1,6 +1,10 @@
 #include "SpecialsMenu.h"
 
-void SpecialsMenu::notifyObservers(String message) {
-	// TODO - implement SpecialsMenu::notifyObservers
-	throw "Not yet implemented";
+void SpecialsMenu::notifyObservers(std::string message)
+{
+
+	for (Observer *o : this->observes)
+	{
+		o->update(message);
+	}
 }

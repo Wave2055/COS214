@@ -1,16 +1,43 @@
 #include "Menus.h"
 
-void Menus::removeObserver(Oberver* observer) {
-	// TODO - implement Menus::removeObserver
-	throw "Not yet implemented";
+Menus::Menus()
+{
+	this->observes = {};
+	this->pizzas = {};
 }
 
-void Menus::addPizza(Pizza pizza) {
-	// TODO - implement Menus::addPizza
-	throw "Not yet implemented";
+Menus::~Menus()
+{
 }
 
-void Menus::removePizza(Pizza pizza) {
-	// TODO - implement Menus::removePizza
-	throw "Not yet implemented";
+void Menus::addObserver(Observer *observer)
+{
+	if (observer)
+	{
+		this->observes.push_back(observer);
+	}
+}
+
+void Menus::removeObserver(int index)
+{
+	if (index >= 0)
+	{
+		this->observes.erase(observes.begin() + index);
+	}
+}
+
+void Menus::addPizza(Pizza *pizza)
+{
+	if (pizza)
+	{
+		this->pizzas.push_back(pizza);
+	}
+}
+
+void Menus::removePizza(int index)
+{
+	if (index >= 0)
+	{
+		this->pizzas.erase(pizzas.begin() + index);
+	}
 }

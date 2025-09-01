@@ -1,6 +1,6 @@
 #include "Website.h"
 
-void Website::update(String message) {
-	// TODO - implement Website::update
-	throw "Not yet implemented";
+void Website::update(std::string message)
+{
+	std::cout << message << std::endl;
 }

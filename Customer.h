@@ -1,11 +1,15 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
-class Customer : Observer {
+#include "Observer.h"
 
+#include <iostream>
+
+class Customer : public Observer
+{
 
 public:
-	void update(String message);
+	void update(std::string message);
 };
 
 #endif

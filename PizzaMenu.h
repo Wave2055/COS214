@@ -1,11 +1,13 @@
 #ifndef PIZZAMENU_H
 #define PIZZAMENU_H
 
-class PizzaMenu : Menus {
+#include "Menus.h"
 
+class PizzaMenu : public Menus
+{
 
 public:
-	void notifyObservers(String message);
+	void notifyObservers(std::string message);
 };
 
 #endif

@@ -1,22 +1,32 @@
 #ifndef MENUS_H
 #define MENUS_H
 
-class Menus {
+#include <iostream>
+#include <vector>
 
-private:
-	Observer* observes;
-	Pizza* pizzas;
+#include "Observer.h"
+#include "Pizza.h"
+
+class Menus
+{
+
+protected:
+	std::vector<Observer *> observes;
+	std::vector<Pizza *> pizzas;
 
 public:
-	virtual void addObserver(Observer* observer) = 0;
+	Menus();
+	virtual ~Menus();
 
-	void removeObserver(Oberver* observer);
+	void addObserver(Observer *observer);
 
-	void addPizza(Pizza pizza);
+	void removeObserver(int index);
 
-	void removePizza(Pizza pizza);
+	void addPizza(Pizza *pizza);
 
-	virtual void notifyObservers(String message) = 0;
+	void removePizza(int index);
+
+	virtual void notifyObservers(std::string message) = 0;
 };
 
 #endif
