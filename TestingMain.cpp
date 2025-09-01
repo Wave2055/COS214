@@ -9,6 +9,18 @@
 #include "Topping.h"
 #include "ToppingGroup.h"
 
+#include "PizzaMenu.h"
+#include "Customer.h"
+#include "Website.h"
+
+int testObserver()
+{
+    std::cout << "---------------------------OBSERVER TESTING---------------------------" << std::endl;
+    PizzaMenu *menu = new PizzaMenu(21);
+
+    return 0;
+}
+
 int main()
 {
 
@@ -108,8 +120,7 @@ int main()
     std::cout << std::endl;
     std::cout << "---------------------------DECORATOR TESTING---------------------------" << std::endl;
 
-
-
+    testObserver();
 
     return 0;
 }

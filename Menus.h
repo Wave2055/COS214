@@ -29,8 +29,7 @@ public:
 
 	virtual void notifyObservers(std::string message) = 0;
 
-private:
-	void switchState(int time);
+	virtual void switchState(int time) = 0;
 };
 
 #endif

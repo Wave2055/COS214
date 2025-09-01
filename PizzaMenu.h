@@ -8,6 +8,10 @@ class PizzaMenu : public Menus
 
 public:
 	void notifyObservers(std::string message);
+
+	PizzaMenu(int time);
+
+	void switchState(int time);
 };
 
 #endif
