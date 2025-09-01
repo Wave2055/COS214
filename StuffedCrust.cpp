@@ -1,11 +1,11 @@
 #include "StuffedCrust.h"
 
-double StuffedCrust::getPrice() {
-	// TODO - implement StuffedCrust::getPrice
-	throw "Not yet implemented";
+double StuffedCrust::getPrice()
+{
+	return this->pizza->getPrice() + this->price;
 }
 
-String StuffedCrust::getName() {
-	// TODO - implement StuffedCrust::getName
-	throw "Not yet implemented";
+std::string StuffedCrust::getName()
+{
+	return "Stuffed Crust " + this->pizza->getName();
 }

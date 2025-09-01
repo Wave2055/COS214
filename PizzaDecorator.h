@@ -5,7 +5,7 @@
 
 #include "Pizza.h"
 
-class PizzaDecorator : Pizza
+class PizzaDecorator : public Pizza
 {
 
 public:
@@ -15,6 +15,7 @@ public:
 
 protected:
 	Pizza *pizza;
+	double price;
 };
 
 #endif
