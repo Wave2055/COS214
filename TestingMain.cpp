@@ -104,5 +104,12 @@ int main()
     std::cout << "After adding cheese - Name: " << singleGroup.getName() << std::endl;
     std::cout << "After adding cheese - Price: R" << singleGroup.getPrice() << std::endl;
 
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << "---------------------------DECORATOR TESTING---------------------------" << std::endl;
+
+
+
+
     return 0;
 }
