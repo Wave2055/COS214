@@ -5,6 +5,8 @@
 
 class LunchMenu : public MenuTypes
 {
+public:
+    LunchMenu();
 };
 
 #endif

@@ -5,6 +5,8 @@
 
 class BreakfastMenu : public MenuTypes
 {
+public:
+    BreakfastMenu();
 };
 
 #endif

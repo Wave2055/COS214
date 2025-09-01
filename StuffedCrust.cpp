@@ -20,3 +20,8 @@ int StuffedCrust::getType()
 {
 	return 2;
 }
+
+Pizza *StuffedCrust::getPizza()
+{
+	return this->pizza;
+}

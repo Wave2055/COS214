@@ -4,22 +4,8 @@
 #include "StuffedCrust.h"
 #include "Topping.h"
 
-BreakfastMenu::BreakfastMenu()
+BreakfastMenu::BreakfastMenu() : MenuTypes({new BasePizza(new Topping("Margherita", 50.0)),
+                                            new ExtraCheese(new BasePizza(new Topping("Pepperoni", 60.0)), 15.0),
+                                            new StuffedCrust(new BasePizza(new Topping("Hawaiian", 55.0)), 20.0)})
 {
-    std::vector<Pizza*> pizzaVector;
-
-    PizzaComponent* margheritaTopping = new Topping("Margherita", 50.0);
-    PizzaComponent* pepperoniTopping = new Topping("Pepperoni", 60.0);
-    PizzaComponent* hawaiianTopping = new Topping("Hawaiian", 55.0);
-
-    Pizza* margherita = new BasePizza(margheritaTopping);
-    Pizza* pepperoni = new BasePizza(pepperoniTopping);
-    Pizza* hawaiian = new BasePizza(hawaiianTopping);
-
-    pizzaVector.push_back(margherita);
-    pizzaVector.push_back(new ExtraCheese(pepperoni, 15.0));
-    pizzaVector.push_back(new StuffedCrust(hawaiian, 20.0));
-
-    this->MenuTypes::MenuTypes( pizzaVector);
 }
-

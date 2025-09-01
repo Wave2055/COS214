@@ -16,6 +16,7 @@ protected:
 
 public:
     MenuTypes(std::vector<Pizza *>);
+    virtual ~MenuTypes();
     void addPizza(Pizza *);
     void removePizza(Pizza *);
 };

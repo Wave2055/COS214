@@ -9,10 +9,12 @@ class PizzaDecorator : public Pizza
 {
 
 public:
-	virtual double getPrice();
+	virtual double getPrice() = 0;
 
-	virtual std::string getName();
-	int getType();
+	virtual ~PizzaDecorator();
+
+	virtual std::string getName() = 0;
+	virtual int getType() = 0;
 
 protected:
 	Pizza *pizza;

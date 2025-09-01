@@ -4,3 +4,5 @@ main
 *.png
 *.zip
 *.vpp.bak*
+*.gcno
+*.gcda

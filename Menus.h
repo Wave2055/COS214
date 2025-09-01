@@ -6,26 +6,31 @@
 
 #include "Observer.h"
 #include "Pizza.h"
+#include "MenuTypes.h"
+
+#include "BreakfastMenu.h"
+#include "LunchMenu.h"
+#include "DinnerMenu.h"
 
 class Menus
 {
 
 protected:
 	std::vector<Observer *> observes;
+	MenuTypes *menu;
 
 public:
-	Menus();
+	Menus(int time); // hour of time in 24hr time
 	virtual ~Menus();
 
 	void addObserver(Observer *observer);
 
 	void removeObserver(int index);
 
-	void addPizza(Pizza *pizza);
-
-	void removePizza(int index);
-
 	virtual void notifyObservers(std::string message) = 0;
+
+private:
+	void switchState(int time);
 };
 
 #endif

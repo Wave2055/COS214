@@ -11,7 +11,8 @@ public:
 	int getType();
 
 	std::string getName();
-	StuffedCrust::StuffedCrust(Pizza *p, double price);
+	StuffedCrust(Pizza *p, double price);
+	Pizza *getPizza();
 };
 
 #endif

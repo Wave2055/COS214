@@ -8,6 +8,17 @@ MenuTypes::MenuTypes(std::vector<Pizza *> menu)
     }
 }
 
+MenuTypes::~MenuTypes()
+{
+    for (Pizza *p : menu)
+    {
+        if (p)
+        {
+            delete p;
+        }
+    }
+}
+
 void MenuTypes::addPizza(Pizza *pizza)
 {
     if (pizza)
@@ -17,6 +28,16 @@ void MenuTypes::addPizza(Pizza *pizza)
             BasePizza *temp = dynamic_cast<BasePizza *>(pizza);
 
             this->menu.push_back(new BasePizza(temp->getToppings()));
+        }
+        else if (pizza->getType() == 1)
+        {
+            ExtraCheese *temp = dynamic_cast<ExtraCheese *>(pizza);
+            this->menu.push_back(new ExtraCheese(temp->getPizza(), temp->getPrice()));
+        }
+        else if (pizza->getType() == 2)
+        {
+            StuffedCrust *temp = dynamic_cast<StuffedCrust *>(pizza);
+            this->menu.push_back(new StuffedCrust(temp->getPizza(), temp->getPrice()));
         }
     }
 }
