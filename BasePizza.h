@@ -5,8 +5,10 @@
 
 #include "Pizza.h"
 #include "PizzaComponent.h"
+#include "Topping.h"
+#include "ToppingGroup.h"
 
-class BasePizza : Pizza
+class BasePizza : public Pizza
 {
 
 public:
@@ -15,6 +17,9 @@ public:
 	double getPrice();
 
 	std::string getName(); // list all toppings before pizza name
+
+	BasePizza(PizzaComponent *toppings);
+	~BasePizza();
 };
 
 #endif
