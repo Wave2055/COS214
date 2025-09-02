@@ -22,7 +22,17 @@
 int testObserver()
 {
     std::cout << "---------------------------OBSERVER TESTING---------------------------" << std::endl;
-    PizzaMenu *menu = new PizzaMenu(21);
+    PizzaMenu *menu = new PizzaMenu(8);
+
+    Customer *obs1 = new Customer();
+    Website *obs2 = new Website();
+
+    menu->addObserver(obs1);
+    menu->addObserver(obs2);
+
+    menu->switchState(8);
+
+    delete menu;
 
     return 0;
 }
@@ -187,8 +197,8 @@ int main()
     delete margheritaTop;
 
     std::vector<PizzaComponent *> emptyToppings;
-    ToppingGroup *emptyGroup = new ToppingGroup("Empty", 0, emptyToppings);
-    BasePizza *emptyPizza = new BasePizza(emptyGroup);
+    ToppingGroup *emptyGroup2 = new ToppingGroup("Empty", 0, emptyToppings);
+    BasePizza *emptyPizza = new BasePizza(emptyGroup2);
 
     std::cout << "Empty Pizza: " << emptyPizza->getName() << std::endl;
     std::cout << "Empty Price: R" << emptyPizza->getPrice() << std::endl;
@@ -197,7 +207,9 @@ int main()
               << std::endl;
 
     delete emptyPizza;
-    delete emptyGroup;
+    delete emptyGroup2;
+
+    testObserver();
 
     return 0;
 }

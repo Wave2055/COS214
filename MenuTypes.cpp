@@ -5,6 +5,7 @@ MenuTypes::MenuTypes(std::vector<Pizza *> menu)
     for (Pizza *pizza : menu)
     {
         this->addPizza(pizza);
+        delete pizza;
     }
 }
 
@@ -17,6 +18,8 @@ MenuTypes::~MenuTypes()
             delete p;
         }
     }
+
+    this->menu.clear();
 }
 
 void MenuTypes::addPizza(Pizza *pizza)

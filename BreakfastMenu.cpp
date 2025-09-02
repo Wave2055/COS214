@@ -9,3 +9,16 @@ BreakfastMenu::BreakfastMenu() : MenuTypes({new BasePizza(new Topping("Margherit
                                             new StuffedCrust(new BasePizza(new Topping("Hawaiian", 55.0)), 20.0)})
 {
 }
+
+BreakfastMenu::~BreakfastMenu()
+{
+    // {
+    //     for (Pizza *p : menu)
+    //     {
+    //         if (p)
+    //         {
+    //             delete p;
+    //         }
+    //     }
+    // }
+}
