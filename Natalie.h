@@ -1,11 +1,13 @@
 #ifndef NATALIE_H
 #define NATALIE_H
 
-class Natalie : Users {
+#include "User.h"
 
+class Natalie : public User
+{
 
 public:
-	Natalie();
+	Natalie(ChatRoom *chatRooms, std::string name, Command *commandQueue);
 
 	~Natalie();
 };

@@ -1,11 +1,13 @@
 #ifndef JAITIN_H
 #define JAITIN_H
 
-class Jaitin : Users {
+#include "User.h"
 
+class Jaitin : public User
+{
 
 public:
-	Jaitin();
+	Jaitin(ChatRoom *chatRooms, std::string name, Command *commandQueue);
 
 	~Jaitin();
 };

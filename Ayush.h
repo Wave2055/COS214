@@ -1,11 +1,13 @@
 #ifndef AYUSH_H
 #define AYUSH_H
 
-class Ayush : Users {
+#include "User.h"
 
+class Ayush : public User
+{
 
 public:
-	Ayush();
+	Ayush(ChatRoom *chatRooms, std::string name, Command *commandQueue);
 
 	~Ayush();
 };
