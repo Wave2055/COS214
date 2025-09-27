@@ -28,8 +28,6 @@ protected:
 public:
 	virtual ~ChatRoom() = 0;
 
-	virtual void registerUser(User *user);
-
 	/**
 	 *@brief Notifies other users in the chat room of a new message
 	 *
@@ -53,7 +51,29 @@ public:
 
 	virtual void saveMessage(std::string message, User *fromUser);
 
+	/**
+	 * @brief Removes a user from the chat room
+	 *
+	 * @param user Pointer to the user to be removed
+	 *
+	 * @note Assumes user is a valid pointer
+	 */
+
 	virtual void removeUser(User *user);
+
+	/**
+	 * @brief Registers a user to the chat room
+	 *
+	 * @param user Pointer to the user to be registered
+	 *
+	 * @note Assumes user is a valid pointer
+	 */
+
+	virtual void registerUser(User *user);
+
+	/**
+	 * @brief Gets the name of the chat room
+	 */
 
 	virtual std::string getName() = 0;
 };

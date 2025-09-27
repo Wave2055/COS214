@@ -7,6 +7,7 @@ class SendMessageCommmand : public Command
 {
 
 public:
+	SendMessageCommmand(ChatRoom *room, std::string message, User *fromUser) : Command(room, message, fromUser) {};
 	void execute();
 };
 

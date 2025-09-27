@@ -1,27 +1,9 @@
 #include "ChatRoom.h"
 
-/**
- *@brief Saves message to chat history
-
- *@param message Message to be saved
- *@param fromUser User who sent the message
- *
- *@note Assumes fromUser is a valid reference
- **/
 void ChatRoom::saveMessage(std::string message, User *fromUser)
 {
     this->chatHistory.push_back(fromUser->getName() + ": " + message);
 }
-
-/**
- *@brief Notifies other users in the chat room of a new message
-
- *@param message Message that was sent
- *@param fromUser User who sent the message
- *
- *@note Assumes fromUser is a valid reference
- *@note Does not notify user that sent message
- **/
 
 void ChatRoom::sendMessage(std::string message, User *fromUser)
 {
@@ -36,12 +18,36 @@ void ChatRoom::sendMessage(std::string message, User *fromUser)
 
 void ChatRoom::registerUser(User *user)
 {
-    // TODO - implement ChatRoom::registerUser
-    throw "Not yet implemented";
+    if (user)
+    {
+        for (User *u : this->users)
+        {
+            if (u == user)
+            {
+                return; // User already registered
+            }
+        }
+    }
+    else if (user == nullptr)
+    {
+        return; // Null pointer, do nothing
+    }
+
+    this->users.push_back(user);
+    user->registerChatRoom(this);
 }
 
 void ChatRoom::removeUser(User *user)
 {
-    // TODO - implement ChatRoom::removeUser
-    throw "Not yet implemented";
+    for (int i = 0; i < this->users.size(); ++i)
+    {
+        User *u = this->users[i];
+        {
+            if (u == user)
+            {
+                this->users.erase(this->users.begin() + i);
+                return; // User found and removed
+            }
+        }
+    }
 }

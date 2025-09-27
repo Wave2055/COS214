@@ -10,6 +10,11 @@ public:
 	Dogorithm();
 
 	~Dogorithm();
+
+	std::string getName()
+	{
+		return this->name;
+	}
 };
 
 #endif
