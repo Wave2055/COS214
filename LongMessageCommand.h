@@ -1,8 +1,10 @@
 #ifndef LONGMESSAGECOMMAND_H
 #define LONGMESSAGECOMMAND_H
 
-class LongMessageCommand : Command {
+#include "Command.h"
 
+class LongMessageCommand : public Command
+{
 
 public:
 	void execute();

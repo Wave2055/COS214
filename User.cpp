@@ -1,31 +1,37 @@
-#include "Users.h"
+#include "User.h"
 
-Users::Users(ChatRoom* chatRooms, String name, Command* commandQueue) {
+User::User(ChatRoom *chatRooms, std::string name, Command *commandQueue)
+{
 	// TODO - implement Users::Users
 	throw "Not yet implemented";
 }
 
-Users::~Users() {
+User::~User()
+{
 	// TODO - implement Users::~Users
 	throw "Not yet implemented";
 }
 
-void Users::send(String message, ChatRoom room) {
+void User::send(std::string message, ChatRoom *room)
+{
 	// TODO - implement Users::send
 	throw "Not yet implemented";
 }
 
-void Users::receive(String messagee, Users fromUser, ChatRoom room) {
+void User::receive(std::string messagee, User *fromUser, ChatRoom *room)
+{
 	// TODO - implement Users::receive
 	throw "Not yet implemented";
 }
 
-void Users::addCommand(Command command) {
+void User::addCommand(Command *command)
+{
 	// TODO - implement Users::addCommand
 	throw "Not yet implemented";
 }
 
-void Users::executeAll() {
+void User::executeAll()
+{
 	// TODO - implement Users::executeAll
 	throw "Not yet implemented";
 }
