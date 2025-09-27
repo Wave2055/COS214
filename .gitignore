@@ -1,0 +1,10 @@
+./vscode
+*.o
+main
+*.pdf
+*.png
+*.zip
+*.vpp.bak*
+*.gcno
+*.gcda
+*.gcov
