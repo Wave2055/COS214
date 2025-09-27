@@ -24,6 +24,11 @@ public:
 	void addCommand(Command *command);
 
 	void executeAll();
+
+	std::string getName()
+	{
+		return this->name;
+	}
 };
 
 #endif
