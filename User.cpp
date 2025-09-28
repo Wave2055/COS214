@@ -1,21 +1,29 @@
 #include "User.h"
 
-User::User(ChatRoom *chatRooms, std::string name, Command *commandQueue)
+User::User(std::string name)
 {
-	// TODO - implement Users::Users
-	throw "Not yet implemented";
+	this->chatRooms = std::vector<ChatRoom *>();
+	this->name = name;
+	this->commandQueue = std::vector<Command *>();
 }
 
 User::~User()
 {
-	// TODO - implement Users::~Users
-	throw "Not yet implemented";
+	if (!this->commandQueue.empty())
+	{
+		executeAll();
+	} // ensures that any queued commands are executed before a user is destroyed
 }
 
 void User::send(std::string message, ChatRoom *room)
 {
-	// TODO - implement Users::send
-	throw "Not yet implemented";
+	Command *sendCommand = new SendMessageCommmand(room, message, this);
+	this->addCommand(sendCommand);
+
+	Command *logCommand = new LogMessageCommand(room, message, this);
+	this->addCommand(logCommand);
+
+	executeAll();
 }
 
 void User::receive(std::string messagee, User *fromUser, ChatRoom *room)
@@ -26,12 +34,23 @@ void User::receive(std::string messagee, User *fromUser, ChatRoom *room)
 
 void User::addCommand(Command *command)
 {
-	// TODO - implement Users::addCommand
-	throw "Not yet implemented";
+	this->commandQueue.push_back(command);
 }
 
 void User::executeAll()
 {
-	// TODO - implement Users::executeAll
-	throw "Not yet implemented";
+	for (Command *cmd : this->commandQueue)
+	{
+		cmd->execute();
+	}
+
+	for (Command *cmd : this->commandQueue)
+	{
+		if (cmd)
+		{
+			delete cmd;
+		}
+	}
+
+	this->commandQueue.clear();
 }

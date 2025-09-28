@@ -28,3 +28,6 @@ val:
 cov: clean main
 	./main
 	gcov TestingMain.cpp
+
+docs: 
+	doxygen Doxyfile
