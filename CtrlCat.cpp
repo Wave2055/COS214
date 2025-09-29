@@ -1,6 +1,6 @@
 #include "CtrlCat.h"
 
-CtrlCat::CtrlCat()
+CtrlCat::CtrlCat() : ChatRoom("CtrlCat")
 {
 }
 

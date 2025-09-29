@@ -2,16 +2,20 @@
 #define CONCRETEITERATOR_H
 #include "Iterator.h"
 #include "ChatRoom.h"
-class ConcreteIterator : Iterator {
+
+class ConcreteIterator : public Iterator
+{
+
 private:
-    const ChatRoom* chatRoom;
+    const ChatRoom *chatRoom;
     size_t currentIndex;
+
 public:
-    ConcreteIterator(const ChatRoom* room);
+    ConcreteIterator(const ChatRoom *room);
     ~ConcreteIterator();
     void first() override;
     void next() override;
-    void isDone() const override;
+    bool isDone() const override;
     std::string currentItem() const override;
 };
 

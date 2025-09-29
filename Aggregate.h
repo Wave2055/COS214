@@ -2,10 +2,13 @@
 #define AGGREGATE_H
 
 #include "Iterator.h"
-class Aggregate 
+
+class Aggregate
 {
+public:
+    Aggregate() {};
     virtual ~Aggregate() {};
-    virtual Iterator* createIterator() const = 0;
+    virtual Iterator *createIterator() const = 0;
 };
 
 #endif
