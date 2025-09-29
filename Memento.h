@@ -4,20 +4,21 @@
 #include <string>
 #include "User.h"
 
-class Memento {
+class Memento
+{
 private:
     std::string contextOfMessage;
-    std::string senderOfMessage;
+    User *senderOfMessage;
     std::string timeStampOfMessage;
     std::string nameOfChatRoom;
 
 public:
-    Memento(std::string context, User* sender, std::string timeStamp, std::string chatRoomName);
-    std::string getContext() ;
-    std::string getSender() ;
-    std::string getTimeStamp()  ;
-    std::string getChatRoomName() ;
-    std::string toString() ;
+    Memento(std::string context, User *sender, std::string timeStamp, std::string chatRoomName);
+    std::string getContext();
+    User *getSender();
+    std::string getTimeStamp();
+    std::string getChatRoomName();
+    std::string toString();
 };
 
 #endif

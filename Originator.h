@@ -4,31 +4,28 @@
 #include <iostream>
 
 #include <memory>
-#include<string>
+#include <string>
 
-class Memento; // Forward declaration
+class Memento;  // Forward declaration
 class ChatRoom; // Forward declaration
 class User;
 
-class Originator {
+class Originator
+{
 private:
-    ChatRoom* room;
+    ChatRoom *room;
     std::string currentMessage;
-    User* currentSender;
+    User *currentSender;
     std::string ChatRoomName;
 
 public:
-    Originator(ChatRoom* chatRoom, const std::string& chatRoomName);
-    std::shared_ptr<Memento> saveMessageToMemento(const std::string& message, User* sender);
-    void restoreMessageFromMemento(const std::shared_ptr<Memento>& memento);
+    Originator(ChatRoom *chatRoom, const std::string &chatRoomName);
+    std::shared_ptr<Memento> saveMessageToMemento(const std::string &message, User *sender);
+    void restoreMessageFromMemento(const std::shared_ptr<Memento> &memento);
     std::string displayCurrentMessage() const;
-    std::string displayCurrentSender() const;
+    User *displayCurrentSender() const;
     std::string displayChatRoomName() const;
     void resendRestoredMessage();
-
-   
-   
-    
 };
 
 #endif
