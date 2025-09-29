@@ -1,6 +1,5 @@
 #include "User.h"
 
-User::User(ChatRoom* chatRooms, std::string name, Command* commandQueue); 
 User::User(std::string name)
 {
 	this->chatRooms = std::vector<ChatRoom *>();

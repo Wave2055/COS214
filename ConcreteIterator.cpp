@@ -1,22 +1,19 @@
 #include "ConcreteIterator.h"
 
-ConcreteIterator::ConcreteIterator(const ChatRoom* room) 
-    : chatRoom(room), currentIndex(0) 
+ConcreteIterator::ConcreteIterator(const ChatRoom *room)
+    : chatRoom(room), currentIndex(0)
 {
-
 }
 
-void ConcreteIterator::first() 
+void ConcreteIterator::first()
 {
     currentIndex = 0;
 }
 
-void ConcreteIterator::next() 
+void ConcreteIterator::next()
 {
-    if (index < chatRoom->chatHistory.size()) 
+    if (currentIndex < chatRoom->chatHistory.size())
     {
         currentIndex++;
     }
-    
 }
-
