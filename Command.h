@@ -1,9 +1,12 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-#include "ChatRoom.h"
-#include "User.h"
+
 #include <string>
+
+class ChatRoom;
+class User;
+
 
 /**
  * @class Command

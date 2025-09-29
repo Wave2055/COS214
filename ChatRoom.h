@@ -34,7 +34,7 @@ protected:
 	Caretaker messageCaretaker;
 
 public:
-	virtual ~ChatRoom() = 0;
+	virtual ~ChatRoom();
 
 	/**
 	 *@brief Notifies other users in the chat room of a new message

@@ -7,6 +7,12 @@
 #include "LogMessageCommand.h"
 
 #include <vector>
+#include <string>
+#include <iostream>
+
+class Command;
+
+class ChatRoom;
 
 /**
  * @class User
@@ -48,7 +54,7 @@ public:
 	 * @param room Pointer to the ChatRoom where the message was sent
 	 */
 
-	void receive(std::string messagee, User *fromUser, ChatRoom *room);
+	void receive(std::string message, User *fromUser, ChatRoom *room);
 
 	/**
 	 * @brief Adds a command to the user's command queue.

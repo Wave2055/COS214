@@ -1,5 +1,9 @@
 #include "ChatRoom.h"
 
+ChatRoom::~ChatRoom()
+{
+}
+
 void ChatRoom::saveMessage(std::string message, User *fromUser)
 {
     this->chatHistory.push_back(fromUser->getName() + ": " + message);

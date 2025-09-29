@@ -27,10 +27,9 @@ void User::send(std::string message, ChatRoom *room)
 	executeAll();
 }
 
-void User::receive(std::string messagee, User *fromUser, ChatRoom *room)
+void User::receive(std::string message, User *fromUser, ChatRoom *room)
 {
-	// TODO - implement Users::receive
-	throw "Not yet implemented";
+	std::cout << this->name << " received " << message << " from " << fromUser->getName() << std::endl;
 }
 
 void User::addCommand(Command *command)

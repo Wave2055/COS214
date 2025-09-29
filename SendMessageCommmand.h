@@ -2,6 +2,7 @@
 #define SENDMESSAGECOMMMAND_H
 
 #include "Command.h"
+#include "ChatRoom.h"
 
 class SendMessageCommmand : public Command
 {
