@@ -3,6 +3,7 @@
 
 #include "ChatRoom.h"
 #include "User.h"
+#include <string>
 
 /**
  * @class Command

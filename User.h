@@ -30,7 +30,7 @@ public:
 	 * @param name Name of the user
 	 */
 	User(std::string name);
-
+	User(ChatRoom* chatRooms, std::string name, Command* commandQueue); 
 	~User();
 
 	/**

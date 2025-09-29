@@ -2,8 +2,11 @@
 #define CHATROOM_H
 
 #include "User.h"
+#include "Originator.h"  
+#include "Caretaker.h"
 #include <string>
 #include <vector>
+#include "Aggregate.h"
 
 class User;
 
@@ -15,7 +18,7 @@ class User;
  * Derived classes must implement the getName() method and the destructor.
  */
 
-class ChatRoom
+class ChatRoom :public Aggregate
 {
 
 private:
@@ -24,6 +27,11 @@ private:
 
 protected:
 	std::string name; ///< Name of the chat room
+
+	//c's stuff
+	std::string chatRoomName;
+	Originator  messageOriginator;
+	Caretaker messageCaretaker;
 
 public:
 	virtual ~ChatRoom() = 0;
@@ -38,44 +46,31 @@ public:
 	 *@note Does not notify user that sent message
 	 **/
 
-	virtual void sendMessage(std::string message, User *fromUser);
+	virtual void sendMessage(std::string message, User fromUser) ;
 
-	/**
-	 *@brief Saves message to chat history
-	 *
-	 *@param message Message to be saved
-	 *@param fromUser User who sent the message
-	 *
-	 *@note Assumes fromUser is a valid reference
-	 **/
+	virtual void saveMessage(std::string message, User fromUser) ;
 
-	virtual void saveMessage(std::string message, User *fromUser);
+	virtual void removeUser(User user) ;
 
-	/**
-	 * @brief Removes a user from the chat room
-	 *
-	 * @param user Pointer to the user to be removed
-	 *
-	 * @note Assumes user is a valid pointer
-	 */
+	ChatRoom(const std::string& roomName) ;
 
-	virtual void removeUser(User *user);
+	// Modified to use Memento pattern
+    void sendMessage(const std::string& message, User* fromUser);
+    void saveMessage(const std::string& message, User* fromUser);
+    
+    // Memento pattern functionality
+    void restoreMessage(size_t index);
+    void displayMessageHistory() const;
+    void undoLastMessage();
+    void redoMessage();
+    void searchMessages(const std::string& keyword) const;
+    
+    // Getters
+    std::string getName() const { return name; }
+    const std::vector<User*>& getUsers() const { return users; }
 
-	/**
-	 * @brief Registers a user to the chat room
-	 *
-	 * @param user Pointer to the user to be registered
-	 *
-	 * @note Assumes user is a valid pointer
-	 */
-
-	virtual void registerUser(User *user);
-
-	/**
-	 * @brief Gets the name of the chat room
-	 */
-
-	virtual std::string getName() = 0;
+	Iterator* createIterator() override;
+    const std::vector<std::string>& getChatHistory() const { return chatHistory; }
 };
 
 #endif
