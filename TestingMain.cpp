@@ -1,6 +1,8 @@
-
+#include "StandardUser.h"
+#include "AdminUser.h"
 
 int main()
 {
-    return 0;
+    StandardUser *p1 = new StandardUser("Chinmayi");
+    StandardUser *p2 = new StandardUser("Jaitin");
 }
