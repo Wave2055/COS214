@@ -116,6 +116,8 @@ void ChatRoom::undoLastMessage()
     {
         std::cout << "Message undone: " << memento->toString() << std::endl;
     }
+
+    chatHistory.erase(chatHistory.end() - 1);
 }
 
 void ChatRoom::redoMessage()
@@ -125,6 +127,8 @@ void ChatRoom::redoMessage()
     {
         std::cout << "Message redone: " << memento->toString() << std::endl;
     }
+
+    chatHistory.push_back(memento->getSender()->getName() + ": " + memento->getContext());
 }
 
 void ChatRoom::searchMessages(const std::string &keyword) const

@@ -39,4 +39,9 @@ int main()
     cr1->redoMessage();
 
     cr1->displayMessageHistory();
+
+    cr2->removeUser(p2);
+
+    p1->send("This is Dogorithm", cr2);
+    std::cout << std::endl;
 }
