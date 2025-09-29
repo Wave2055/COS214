@@ -27,7 +27,13 @@ val:
 
 cov: clean main
 	./main
-	gcov TestingMain.cpp
+	# Capture coverage
+	lcov --capture --directory . --output-file coverage.info
+	# Remove system headers
+	lcov --remove coverage.info '/usr/*' --output-file coverage.info
+	# Generate HTML report
+	genhtml coverage.info --output-directory coverage-report
+	@echo "Coverage report ready at coverage-report/index.html"
 
 docs: 
 	doxygen Doxyfile

@@ -1,12 +1,13 @@
 #include "StandardUser.h"
 #include "AdminUser.h"
+#include "GuestUser.h"
 #include "CtrlCat.h"
 #include "Dogorithm.h"
 
 int main()
 {
     StandardUser *p1 = new StandardUser("Chinmayi");
-    StandardUser *p2 = new StandardUser("Jaitin");
+    GuestUser *p2 = new GuestUser("Jaitin");
     AdminUser *a1 = new AdminUser("Admin1");
     AdminUser *a2 = new AdminUser("Admin2");
 
@@ -44,4 +45,15 @@ int main()
 
     p1->send("This is Dogorithm", cr2);
     std::cout << std::endl;
+
+    cr1->searchMessages("Hello");
+
+    delete p1;
+    delete p2;
+    delete a1;
+    delete a2;
+
+    delete cr1;
+    delete cr2;
+    return 0;
 }

@@ -107,6 +107,8 @@ void ChatRoom::displayMessageHistory() const
         std::cout << "• " << mov->currentItem() << std::endl;
         mov->next();
     }
+
+    delete mov;
 }
 
 void ChatRoom::undoLastMessage()

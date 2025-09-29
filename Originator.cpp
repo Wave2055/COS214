@@ -39,26 +39,3 @@ void Originator::restoreMessageFromMemento(const std::shared_ptr<Memento> &memen
         std::cout << "Error: Invalid memento provided for restoration." << std::endl;
     }
 }
-std::string Originator::displayCurrentMessage() const
-{
-    return currentMessage;
-}
-User *Originator::displayCurrentSender() const
-{
-    return currentSender;
-}
-std::string Originator::displayChatRoomName() const
-{
-    return ChatRoomName;
-}
-void Originator::resendRestoredMessage()
-{
-    if (room)
-    {
-        room->sendMessage(currentMessage, currentSender); // method gotta be implemented in chatroom;
-    }
-    else
-    {
-        std::cout << "Error: No chat room associated with this originator." << std::endl;
-    }
-}
