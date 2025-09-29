@@ -1,23 +1,14 @@
 #include "ChatRoom.h"
+#include"Memento.h"
+#include "ConcreteIterator.h"
 
 ChatRoom::~ChatRoom()
 {
 }
 
-void ChatRoom::saveMessage(std::string message, User *fromUser)
+void ChatRoom::saveMessage(std::string message, User* user)
 {
-    this->chatHistory.push_back(fromUser->getName() + ": " + message);
-}
-
-void ChatRoom::sendMessage(std::string message, User *fromUser)
-{
-    for (User *user : this->users)
-    {
-        if (user != fromUser)
-        {
-            user->receive(message, fromUser, this);
-        }
-    }
+    this->chatHistory.push_back(user->getName() + ": " + message);
 }
 
 void ChatRoom::registerUser(User *user)
@@ -64,28 +55,29 @@ ChatRoom::ChatRoom(const std::string& roomName)
       messageCaretaker(100) {  // Max 100 messages in history
 }
 
-void ChatRoom::sendMessage(const std::string& message, User* fromUser) {
+void ChatRoom::sendMessage(const std::string& message, User*  user) {
+    
     // Save message to memento before sending (creates backup)
-    auto memento = messageOriginator.saveMessageToMemento(message, fromUser->getName());
+    auto memento = messageOriginator.saveMessageToMemento(message, user->getName());
     messageCaretaker.addMemento(memento);
     
     // Original logic: deliver message to all other users in room
-    std::cout << "[" << name << "] " << fromUser->getName() << " sends: " << message << std::endl;
+    std::cout << "[" << name << "] " << user->getName() << " sends: " << message << std::endl;
     
     for (User* user : users) {
-        if (user != fromUser) {  // Don't send the message back to sender
-            user->receive(message, fromUser, this);
+        if (user != user) {  // Don't send the message back to sender
+            user->receive(message, user, this);
         }
     }
     
     // Save to regular chat history (existing functionality)
-    saveMessage(message, fromUser);
+    saveMessage(message, user);
 }
 
-void ChatRoom::saveMessage(const std::string& message, User* fromUser) {
-    std::string formattedMessage = "[" + fromUser->getName() + "]: " + message;
-    chatHistory.push_back(formattedMessage);
-}
+// void ChatRoom::saveMessage(const std::string& message, User* fromUser) {
+//     std::string formattedMessage = "[" + fromUser->getName() + "]: " + message;
+//     chatHistory.push_back(formattedMessage);
+// }
 
 void ChatRoom::restoreMessage(size_t index) {
     auto memento = messageCaretaker.getMemento(index);

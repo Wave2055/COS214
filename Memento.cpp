@@ -1,45 +1,46 @@
 #include "Memento.h"
 #include <string>
 
+using std::string;
 
-Memento(string context, string sender, string timeStamp, string chatRoomName) 
+Memento::Memento(string context, User* sender, string timeStamp, string chatRoomName) 
 : contextOfMessage(context), senderOfMessage(sender), timeStampOfMessage(timeStamp), nameOfChatRoom(chatRoomName) 
 {
 
     time_t now = time(0);
     // Convert time to readable string format
-    timestamp = ctime(&now);
+    timeStamp = ctime(&now);
     
     // Remove the newline character that ctime() adds at the end
-    if (!timestamp.empty() && timestamp.back() == '\n') 
+    if (!timeStamp.empty() && timeStamp.back() == '\n') 
     {
-        timestamp.pop_back();  // Remove the last character (newline)
+        timeStamp.pop_back();  // Remove the last character (newline)
     }
 
 }
 
-string getContext() const 
+string Memento::getContext()
 {
 
     return contextOfMessage;
 }
 
-string getSender() const 
+string Memento::getSender()  
 {
     return senderOfMessage;
 }
 
-string getTimeStamp() const 
+string Memento::getTimeStamp()
 {
     return timeStampOfMessage;
 }
 
-string getChatRoomName() const 
+string Memento::getChatRoomName()
 {
     return nameOfChatRoom;
 }
 
-std::string MessageMemento::toString() const 
+std::string Memento::toString()
 {
-    return "[" + timestampOfMessage + "] " + senderOfMessage + " in " + nameOfChatRoom + ": " + contextOfMessage;
+    return "[" + timeStampOfMessage + "] " + senderOfMessage + " in " + nameOfChatRoom + ": " + contextOfMessage;
 }

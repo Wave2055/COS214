@@ -4,6 +4,7 @@
 #include "User.h"
 #include "Originator.h"  
 #include "Caretaker.h"
+#include "Memento.h"
 #include <string>
 #include <vector>
 #include "Aggregate.h"
@@ -46,17 +47,16 @@ public:
 	 *@note Does not notify user that sent message
 	 **/
 
-	virtual void sendMessage(std::string message, User fromUser) ;
+	virtual void sendMessage(const std::string& message, User* user) ;
 
-	virtual void saveMessage(std::string message, User fromUser) ;
+	virtual void saveMessage(std::string message, User* user) ;
 
-	virtual void removeUser(User user) ;
+	virtual void removeUser(User* user) ;
 
 	ChatRoom(const std::string& roomName) ;
 
 	// Modified to use Memento pattern
-    void sendMessage(const std::string& message, User* fromUser);
-    void saveMessage(const std::string& message, User* fromUser);
+    //void sendMessage(const std::string& message, User* user);
     
     // Memento pattern functionality
     void restoreMessage(size_t index);
@@ -71,6 +71,7 @@ public:
 
 	Iterator* createIterator();
     const std::vector<std::string>& getChatHistory() const { return chatHistory; }
+	virtual void registerUser(User* user);
 };
 
 #endif

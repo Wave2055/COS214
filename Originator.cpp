@@ -1,26 +1,28 @@
 #include "Memento.h"
 #include "Originator.h"
 #include "ChatRoom.h"
+#include"User.h"
 #include <iostream>
 #include <memory>
 #include <string>
+using std::string;
 
 
 Originator::Originator(ChatRoom* chatRoom, const std::string& chatRoomName)
     : room(chatRoom), ChatRoomName(chatRoomName)
 {
     currentMessage = "";
-    currentSender = "";
+    
 }
 
-std::shared_ptr<Memento> Originator::saveMessageToMemento(const std::string& message, const std::string& sender) 
+std::shared_ptr<Memento> Originator::saveMessageToMemento(const std::string& message, User* sender) 
 {
     
     currentMessage = message;  // Store the message content internally
     currentSender = sender;    // Store the sender's name internally
     
     // Create a new memento object with the current state
-    return std::make_shared<Memento>(currentMessage, currentSender, chatRoomName);
+    return std::make_shared<Memento>(currentMessage, currentSender, ChatRoomName);
 }
 
 void Originator::restoreMessageFromMemento(const std::shared_ptr<Memento>& memento) 
@@ -35,15 +37,15 @@ void Originator::restoreMessageFromMemento(const std::shared_ptr<Memento>& memen
         std::cout << "Error: Invalid memento provided for restoration." << std::endl;
     }
 }
-string Originator::displayCurrentMessage() const 
+std::string Originator::displayCurrentMessage() const 
 {
     return currentMessage;
 }
-string Originator::displayCurrentSender() const 
+std::string Originator::displayCurrentSender() const 
 {
     return currentSender;
 }
-string Originator::displayChatRoomName() const 
+std::string Originator::displayChatRoomName() const 
 {
     return ChatRoomName;
 }

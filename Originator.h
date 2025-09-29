@@ -2,23 +2,24 @@
 #define ORIGINATOR_H
 
 #include <iostream>
+
 #include <memory>
 #include<string>
 
 class Memento; // Forward declaration
 class ChatRoom; // Forward declaration
-
+class User;
 
 class Originator {
 private:
     ChatRoom* room;
     std::string currentMessage;
-    std::string currentSender;
+    User* currentSender;
     std::string ChatRoomName;
 
 public:
     Originator(ChatRoom* chatRoom, const std::string& chatRoomName);
-    std::shared_ptr<Memento> saveMessageToMemento(const std::string& message, const std::string& sender);
+    std::shared_ptr<Memento> saveMessageToMemento(const std::string& message, User* sender);
     void restoreMessageFromMemento(const std::shared_ptr<Memento>& memento);
     std::string displayCurrentMessage() const;
     std::string displayCurrentSender() const;
