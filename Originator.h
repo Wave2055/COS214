@@ -17,7 +17,7 @@ private:
     std::string ChatRoomName;
 
 public:
-    Originator(ChatRoom* chatRoom, const string& chatRoomName);
+    Originator(ChatRoom* chatRoom, const std::string& chatRoomName);
     std::shared_ptr<Memento> saveMessageToMemento(const std::string& message, const std::string& sender);
     void restoreMessageFromMemento(const std::shared_ptr<Memento>& memento);
     std::string displayCurrentMessage() const;

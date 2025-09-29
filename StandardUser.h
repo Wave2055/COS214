@@ -1,5 +1,5 @@
-#ifndef AYUSH_H
-#define AYUSH_H
+#ifndef STANDARDUSER_H
+#define STANDARDUSER_H
 
 #include "User.h"
 

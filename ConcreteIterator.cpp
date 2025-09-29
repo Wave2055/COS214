@@ -12,8 +12,24 @@ void ConcreteIterator::first()
 
 void ConcreteIterator::next()
 {
-    if (currentIndex < chatRoom->chatHistory.size())
+
+    if (curretIndex < chatRoom->chatHistory.size()) 
     {
         currentIndex++;
     }
+}
+
+
+bool ConcreteIterator::isDone() const 
+{
+    return currentIndex >= chatRoom->chatHistory.size();
+}
+
+std::string ConcreteIterator::currentItem() const 
+{
+    if (isDone()) 
+    {
+        return chatRoom->getChatHistory()[index];
+    }
+    return "";
 }

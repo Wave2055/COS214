@@ -69,7 +69,7 @@ public:
     std::string getName() const { return name; }
     const std::vector<User*>& getUsers() const { return users; }
 
-	Iterator* createIterator() override;
+	Iterator* createIterator();
     const std::vector<std::string>& getChatHistory() const { return chatHistory; }
 };
 
