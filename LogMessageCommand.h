@@ -1,6 +1,7 @@
 #ifndef LONGMESSAGECOMMAND_H
 #define LONGMESSAGECOMMAND_H
 
+#include "ChatRoom.h"
 #include "Command.h"
 #include <fstream>
 #include <ctime>
@@ -18,7 +19,7 @@ class LogMessageCommand : public Command
 {
 
 public:
-		LogMessageCommand(ChatRoom *room, std::string message, User *fromUser) : Command(room, message, fromUser) {};
+	LogMessageCommand(ChatRoom *room, std::string message, User *fromUser) : Command(room, message, fromUser) {};
 	void execute();
 };
 

@@ -26,7 +26,7 @@ protected:
 	std::string name; ///< Name of the chat room
 
 public:
-	virtual ~ChatRoom() = 0;
+	virtual ~ChatRoom();
 
 	/**
 	 *@brief Notifies other users in the chat room of a new message

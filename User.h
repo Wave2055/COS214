@@ -7,6 +7,11 @@
 #include "LogMessageCommand.h"
 
 #include <vector>
+#include <string>
+
+class Command;
+
+class ChatRoom;
 
 /**
  * @class User
