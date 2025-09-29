@@ -2,7 +2,7 @@
 #define CHATROOM_H
 
 #include "User.h"
-#include "Originator.h"  
+#include "Originator.h"
 #include "Caretaker.h"
 #include "Memento.h"
 #include <string>
@@ -19,7 +19,7 @@ class User;
  * Derived classes must implement the getName() method and the destructor.
  */
 
-class ChatRoom :public Aggregate
+class ChatRoom : public Aggregate
 {
 
 private:
@@ -29,9 +29,9 @@ private:
 protected:
 	std::string name; ///< Name of the chat room
 
-	//c's stuff
+	// c's stuff
 	std::string chatRoomName;
-	Originator  messageOriginator;
+	Originator messageOriginator;
 	Caretaker messageCaretaker;
 
 public:
@@ -47,31 +47,31 @@ public:
 	 *@note Does not notify user that sent message
 	 **/
 
-	virtual void sendMessage(const std::string& message, User* user) ;
+	virtual void sendMessage(const std::string &message, User *user);
 
-	virtual void saveMessage(std::string message, User* user) ;
+	virtual void saveMessage(std::string message, User *user);
 
-	virtual void removeUser(User* user) ;
+	virtual void removeUser(User *user);
 
-	ChatRoom(const std::string& roomName) ;
+	ChatRoom(const std::string &roomName);
 
 	// Modified to use Memento pattern
-    //void sendMessage(const std::string& message, User* user);
-    
-    // Memento pattern functionality
-    void restoreMessage(size_t index);
-    void displayMessageHistory() const;
-    void undoLastMessage();
-    void redoMessage();
-    void searchMessages(const std::string& keyword) const;
-    
-    // Getters
-    std::string getName() const { return name; }
-    const std::vector<User*>& getUsers() const { return users; }
+	// void sendMessage(const std::string& message, User* user);
 
-	Iterator* createIterator();
-    const std::vector<std::string>& getChatHistory() const { return chatHistory; }
-	virtual void registerUser(User* user);
+	// Memento pattern functionality
+	void restoreMessage(size_t index);
+	void displayMessageHistory() const;
+	void undoLastMessage();
+	void redoMessage();
+	void searchMessages(const std::string &keyword) const;
+
+	// Getters
+	std::string getName() const { return name; }
+	const std::vector<User *> &getUsers() const { return users; }
+
+	virtual Iterator *createIterator() const;
+	const std::vector<std::string> &getChatHistory() const { return chatHistory; }
+	virtual void registerUser(User *user);
 };
 
 #endif

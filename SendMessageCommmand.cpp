@@ -12,6 +12,6 @@
 
 void SendMessageCommmand::execute()
 {
-	this->room->saveMessage(this->message, this->fromUser);
 	this->room->sendMessage(this->message, this->fromUser);
+	this->room->saveMessage(this->message, this->fromUser);
 }

@@ -9,6 +9,14 @@ ChatRoom::~ChatRoom()
 void ChatRoom::saveMessage(std::string message, User *user)
 {
     this->chatHistory.push_back(user->getName() + ": " + message);
+
+    for (User *u : users)
+    {
+        if (user != u)
+        {
+            u->receive(message, user, this);
+        }
+    }
 }
 
 void ChatRoom::registerUser(User *user)
@@ -72,9 +80,6 @@ void ChatRoom::sendMessage(const std::string &message, User *user)
             user->receive(message, user, this);
         }
     }
-
-    // Save to regular chat history (existing functionality)
-    saveMessage(message, user);
 }
 
 // void ChatRoom::saveMessage(const std::string& message, User* fromUser) {
@@ -94,7 +99,14 @@ void ChatRoom::restoreMessage(size_t index)
 
 void ChatRoom::displayMessageHistory() const
 {
-    messageCaretaker.displayHistory();
+    Iterator *mov = createIterator();
+    mov->first();
+
+    while (!mov->isDone())
+    {
+        std::cout << "• " << mov->currentItem() << std::endl;
+        mov->next();
+    }
 }
 
 void ChatRoom::undoLastMessage()
@@ -128,7 +140,7 @@ void ChatRoom::searchMessages(const std::string &keyword) const
     }
 }
 
-Iterator *ChatRoom::createIterator()
+Iterator *ChatRoom::createIterator() const
 {
     return new ConcreteIterator(this);
 }

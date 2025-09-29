@@ -5,9 +5,7 @@ ConcreteIterator::ConcreteIterator(const ChatRoom *room)
 {
 }
 
-ConcreteIterator::~ConcreteIterator()
-{
-}
+ConcreteIterator::~ConcreteIterator() {}
 
 void ConcreteIterator::first()
 {
@@ -30,7 +28,7 @@ bool ConcreteIterator::isDone() const
 
 std::string ConcreteIterator::currentItem() const
 {
-    if (isDone())
+    if (!isDone())
     {
         return chatRoom->getChatHistory()[currentIndex];
     }
