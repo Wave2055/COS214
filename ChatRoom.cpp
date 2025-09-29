@@ -55,3 +55,75 @@ void ChatRoom::removeUser(User *user)
         }
     }
 }
+
+
+/////////////////////////-c
+ChatRoom::ChatRoom(const std::string& roomName) 
+    : name(roomName), 
+      messageOriginator(this, roomName),
+      messageCaretaker(100) {  // Max 100 messages in history
+}
+
+void ChatRoom::sendMessage(const std::string& message, User* fromUser) {
+    // Save message to memento before sending (creates backup)
+    auto memento = messageOriginator.saveMessageToMemento(message, fromUser->getName());
+    messageCaretaker.addMemento(memento);
+    
+    // Original logic: deliver message to all other users in room
+    std::cout << "[" << name << "] " << fromUser->getName() << " sends: " << message << std::endl;
+    
+    for (User* user : users) {
+        if (user != fromUser) {  // Don't send the message back to sender
+            user->receive(message, fromUser, this);
+        }
+    }
+    
+    // Save to regular chat history (existing functionality)
+    saveMessage(message, fromUser);
+}
+
+void ChatRoom::saveMessage(const std::string& message, User* fromUser) {
+    std::string formattedMessage = "[" + fromUser->getName() + "]: " + message;
+    chatHistory.push_back(formattedMessage);
+}
+
+void ChatRoom::restoreMessage(size_t index) {
+    auto memento = messageCaretaker.getMemento(index);
+    if (memento) {
+        std::cout << "Restoring message from history index " << index << ":" << std::endl;
+        messageOriginator.restoreMessageFromMemento(memento);
+    }
+}
+
+void ChatRoom::displayMessageHistory() const {
+    messageCaretaker.displayHistory();
+}
+
+void ChatRoom::undoLastMessage() {
+    auto memento = messageCaretaker.undo();
+    if (memento) {
+        std::cout << "Message undone: " << memento->toString() << std::endl;
+    }
+}
+
+void ChatRoom::redoMessage() {
+    auto memento = messageCaretaker.redo();
+    if (memento) {
+        std::cout << "Message redone: " << memento->toString() << std::endl;
+    }
+}
+
+void ChatRoom::searchMessages(const std::string& keyword) const {
+    auto results = messageCaretaker.searchMementos(keyword);
+    if (!results.empty()) {
+        std::cout << "\n=== SEARCH RESULTS for '" << keyword << "' ===" << std::endl;
+        for (const auto& memento : results) {
+            std::cout << "• " << memento->toString() << std::endl;
+        }
+    }
+}
+
+Iterator* ChatRoom::createIterator() 
+{
+    return new ConcreteIterator(this);
+}
